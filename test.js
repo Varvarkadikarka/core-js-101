@@ -1,9 +1,8 @@
-function getCardId(value) {
-  value
-    .split('');
-    //.replace('A', 1)
-    //.replace('♣', 0);
-  console.log(value);
+function toNumber(value, def) {
+  let a = +value;
+  console.log(a);
+  console.log(!isNaN(a) ? a : def);
 }
 
-getCardId('A♣');
+
+toNumber('test', 0);
