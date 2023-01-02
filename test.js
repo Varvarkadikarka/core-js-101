@@ -1,10 +1,12 @@
-function getDigitalRoot(num) {
-  return num
-    .toString()
-    .split('')
-    .map(Number)
-    .reduce((a, b) => a + b)
-    
+function getCommonDirectoryPath(pathes) {
+  const a = pathes.map((el) => el.split(/(\/)/)).flat();
+  const b = a
+    .filter((el) => el !== '/')
+    .filter((number, index, numbers) => {
+      return numbers.indexOf(number) !== index
+    })
+    .join('/');
+  return b.length > 1 ? `${b}/` : b;
 }
 
-console.log(getDigitalRoot(45121232));
+console.log(getCommonDirectoryPath(['/web/assets/style.css,/web/scripts/app.js,home/setting.conf']));
